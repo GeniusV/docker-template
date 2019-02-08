@@ -1,0 +1,16 @@
+version: "3"
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - "./data:/var/lib/mysql"
+      - "./log:/var/log/mysql"
+      - "./conf:/etc/mysql/conf.d"
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: db
+      MYSQL_USER: geniusv
+      MYSQL_PASSWORD: 123456
+    ports:
+      - "3306"
