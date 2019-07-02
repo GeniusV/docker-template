@@ -1,0 +1,11 @@
+version: "3"
+services:
+  mq:
+    image: rabbitmq:3.7-management-alpine
+    volumes: 
+      - "./data:/var/lib/rabbitmq" #data dir
+      - "./conf/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf" #config file
+    ports:
+      - "5673:5672" # rabbitmq port
+      - "15673:15672" # management port
+
