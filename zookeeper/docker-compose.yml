@@ -1,0 +1,37 @@
+
+version: "3"
+services:
+
+  cas:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cas
+    container_name: cas-server
+    volumes:
+      - "./m2:/root/.m2"
+      - "./temp:/temp"
+      - "./src:/cas-overlay/src"
+    ports:
+      - 8080:8443
+
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mysql:5.7
+    container_name: cas-mysql
+    volumes:
+      - "./mysql/data:/var/lib/mysql"
+      - "./mysql/log:/var/log/mysql"
+      - "./mysql/conf:/etc/mysql/conf.d"
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: db
+      MYSQL_USER: geniusv
+      MYSQL_PASSWORD: 123456
+    ports:
+      - "3307:3306"
+    command: [bundle, exec, thin, -p, 3000]
+
