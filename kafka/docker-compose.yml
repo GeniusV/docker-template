@@ -12,12 +12,13 @@ services:
     ports:
       - 2181:2181
     volumes:
-      #      - "./zookeeper/conf:/conf"
+#      - "./zookeeper/conf:/conf"
       - "./zookeeper/zk-0/data:/data"
       - "./zookeeper/zk-0/datalog:/datalog"
     environment:
       ZOO_MY_ID: 0
       ZOO_SERVERS: server.0=zk-0:2888:3888;2181 server.1=zk-1:2888:3888;2181 server.2=zk-2:2888:3888;2181
+
 
   zk-1:
     image: zookeeper:3.7.0
@@ -27,7 +28,7 @@ services:
     ports:
       - 2182:2181
     volumes:
-      #      - "./zookeeper/conf:/conf"
+#      - "./zookeeper/conf:/conf"
       - "./zookeeper/zk-1/data:/data"
       - "./zookeeper/zk-1/datalog:/datalog"
     environment:
@@ -42,7 +43,7 @@ services:
     ports:
       - 2183:2181
     volumes:
-      #      - "./zookeeper/conf:/conf"
+#      - "./zookeeper/conf:/conf"
       - "./zookeeper/zk-2/data:/data"
       - "./zookeeper/zk-2/datalog:/datalog"
     environment:
