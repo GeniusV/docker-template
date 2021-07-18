@@ -1,11 +1,13 @@
-version: "3"
+version: "3.8"
 services:
   mysql:
-    image: mysql:5.7
+    image: mysql:8.0.21
+    container_name: mysql
     volumes:
-      - "./data:/var/lib/mysql"
-      - "./log:/var/log/mysql"
-      - "./conf:/etc/mysql/conf.d"
+      - "./mysql/data:/var/lib/mysql"
+      - "./mysql/log:/var/log/mysql"
+      - "./mysql/conf:/etc/mysql/conf.d"
+      - "./mysql/init:/docker-entrypoint-initdb.d"
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: 123456

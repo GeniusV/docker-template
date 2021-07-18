@@ -1,7 +1,6 @@
 
 version: "3"
 services:
-
   cas:
     build:
       context: .
@@ -14,6 +13,9 @@ services:
       - "./src:/cas-overlay/src"
     ports:
       - 8080:8443
+        networks:
+    redis-network:
+      ipv4_address: 172.16.0.100
 
   db:
     build:
@@ -34,4 +36,12 @@ services:
     ports:
       - "3307:3306"
     command: [bundle, exec, thin, -p, 3000]
-
+    networks:
+      redis-network:
+        ipv4_address: 172.16.0.101
+        
+networks:
+  app-network:
+    ipam:
+      config:
+        - subnet: 172.16.0.0/24
