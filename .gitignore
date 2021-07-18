@@ -6,8 +6,6 @@
 *.iml
 *.DS_Store
 
-zookeeper/zookeeper/zk-*/data/**
-zookeeper/zookeeper/zk-*/datalog/**
+zookeeper/volumes/
 
-kafka/kafka/
-kafka/zookeeper
+kafka/volumes

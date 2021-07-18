@@ -1,2 +1,1 @@
-rm -rf zookeeper
-rm -rf kafka
+rm -rf volumes

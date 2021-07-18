@@ -8,8 +8,8 @@ services:
       - 2180:2181
     volumes:
 #      - "./zookeeper/conf:/conf"
-      - "./zookeeper/zk-0/data:/data"
-      - "./zookeeper/zk-0/datalog:/datalog"
+      - "./volumes/zk-0/data:/data"
+      - "./volumes/zk-0/datalog:/datalog"
     environment:
       ZOO_MY_ID: 0
       ZOO_SERVERS: server.0=zk-0:2888:3888;2181
@@ -26,8 +26,8 @@ services:
       KAFKA_ADVERTISED_PORT: 9090                                 # need to change: host machine mapping port
       KAFKA_ZOOKEEPER_CONNECT: "zk-0:2181"
     volumes:
-      - "./kafka/kafka-0/docker.sock:/var/run/docker.sock"
-      - "./kafka/kafka-0/data/:/kafka"
+      - "./volumes/kafka-0/docker.sock:/var/run/docker.sock"
+      - "./volumes/kafka-0/data/:/kafka"
 
   kafka-1:
     image: wurstmeister/kafka:2.13-2.7.0
@@ -41,8 +41,8 @@ services:
       KAFKA_ADVERTISED_PORT: 9091                                 # need to change: host machine mapping port
       KAFKA_ZOOKEEPER_CONNECT: "zk-0:2181"
     volumes:
-      - "./kafka/kafka-1/docker.sock:/var/run/docker.sock"
-      - "./kafka/kafka-1/data/:/kafka"
+      - "./volumes/kafka-1/docker.sock:/var/run/docker.sock"
+      - "./volumes/kafka-1/data/:/kafka"
 
   kafka-2:
     image: wurstmeister/kafka:2.13-2.7.0
@@ -56,5 +56,5 @@ services:
       KAFKA_ADVERTISED_PORT: 9092                                 # need to change: host machine mapping port
       KAFKA_ZOOKEEPER_CONNECT: "zk-0:2181"
     volumes:
-      - "./kafka/kafka-2/docker.sock:/var/run/docker.sock"
-      - "./kafka/kafka-2/data/:/kafka"
+      - "./volumes/kafka-2/docker.sock:/var/run/docker.sock"
+      - "./volumes/kafka-2/data/:/kafka"

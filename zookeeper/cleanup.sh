@@ -1,1 +1,1 @@
-rm -rf zookeeper/zk-*
+rm -rf volumes
