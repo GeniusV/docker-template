@@ -8,3 +8,6 @@
 
 zookeeper/zookeeper/zk-*/data/**
 zookeeper/zookeeper/zk-*/datalog/**
+
+kafka/kafka/
+kafka/zookeeper
