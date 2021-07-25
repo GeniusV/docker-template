@@ -18,13 +18,31 @@ Template principles:
 
 ### File Structure
 
+```
+kafka
+├── cleanup.sh
+├── docker-compose.yml
+└── volumes
+    ├── kafka-0
+    ├── kafka-1
+    ├── kafka-2
+    └── zk-0
+```
 
 ## Volumes
 
 ## Networks
 
-## Cleanup
+``` yaml
+networks:
+  app-network:
+    ipam:
+      config:
+        - subnet: 172.16.0.0/24
+```
 
+## Cleanup
+Every service needs to include a script to clean up volumes
 
 
 
