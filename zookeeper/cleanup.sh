@@ -1,1 +1,1 @@
-rm -rf volumes
+rm -rf data

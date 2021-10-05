@@ -13,8 +13,8 @@ services:
       - 2181:2181
     volumes:
       #      - "./conf:/conf"
-      - "./volumes/zk-0/data:/data"
-      - "./volumes/zk-0/datalog:/datalog"
+      - "./data/zk-0/data:/data"
+      - "./data/zk-0/datalog:/datalog"
     environment:
       ZOO_MY_ID: 0
       ZOO_SERVERS: server.0=zk-0:2888:3888;2181 server.1=zk-1:2888:3888;2181 server.2=zk-2:2888:3888;2181
@@ -28,8 +28,8 @@ services:
       - 2182:2181
     volumes:
        #      - "./conf:/conf"
-      - "./volumes/zk-1/data:/data"
-      - "./volumes/zk-1/datalog:/datalog"
+      - "./data/zk-1/data:/data"
+      - "./data/zk-1/datalog:/datalog"
     environment:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.0=zk-0:2888:3888;2181 server.1=zk-1:2888:3888;2181 server.2=zk-2:2888:3888;2181
@@ -43,8 +43,8 @@ services:
       - 2183:2181
     volumes:
        #      - "./conf:/conf"
-      - "./volumes/zk-2/data:/data"
-      - "./volumes/zk-2/datalog:/datalog"
+      - "./data/zk-2/data:/data"
+      - "./data/zk-2/datalog:/datalog"
     environment:
       ZOO_MY_ID: 2
       ZOO_SERVERS: server.0=zk-0:2888:3888;2181 server.1=zk-1:2888:3888;2181 server.2=zk-2:2888:3888;2181
