@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  mariadb-0:
+    image: mariadb:latest
+    container_name: mariadb-0
+    volumes:
+      - "./mariadb-0/data:/var/lib/mysql"
+      - "./mariadb-0/log:/var/log/mysql"
+      - "./mariadb-0/conf:/etc/mysql/conf.d"
+      - "./mariadb-0/init:/docker-entrypoint-initdb.d"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: db
+      MYSQL_USER: geniusv
+      MYSQL_PASSWORD: 123456
+    ports:
+      - "3306:3306"
