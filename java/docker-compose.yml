@@ -1,0 +1,23 @@
+version: "3.1"
+
+  services:
+
+    app-jdk8:
+      image: openjdk:8-jdk-slim
+      container_name: app-jdk8
+      volumes:
+        - "./app-jdk8-0.0.1.jar:/app/app-jdk8.jar"
+      ports:
+        - "8761:8761"
+      working_dir: "/app"
+      command: ["java", "-jar", "app-jdk8.jar"]
+    
+    app-jdk11:
+      image: openjdk:11-jdk-slim
+      container_name: app-jdk11
+      volumes:
+        - "./app-jdk11-0.0.1.jar:/app/app-jdk11.jar"
+      ports:
+        - "8761:8761"
+      working_dir: "/app"
+      command: ["java", "-jar", "app-jdk11.jar"]
