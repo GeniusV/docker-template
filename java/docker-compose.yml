@@ -8,9 +8,10 @@ version: "3.1"
       volumes:
         - "./app-jdk8-0.0.1.jar:/app/app-jdk8.jar"
       ports:
-        - "8761:8761"
+        - "8080:8080"
+        - "5005"  # debug port
       working_dir: "/app"
-      command: ["java", "-jar", "app-jdk8.jar"]
+      command: ["java", "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005", "-jar", "app-jdk8.jar"]
     
     app-jdk11:
       image: openjdk:11-jdk-slim
@@ -18,6 +19,7 @@ version: "3.1"
       volumes:
         - "./app-jdk11-0.0.1.jar:/app/app-jdk11.jar"
       ports:
-        - "8761:8761"
+        - "8080:8080"
+        - "5005"  # debug port
+      command: ["java", "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005", "-jar", "app-jdk11.jar"]
       working_dir: "/app"
-      command: ["java", "-jar", "app-jdk11.jar"]
