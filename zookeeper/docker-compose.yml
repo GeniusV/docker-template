@@ -5,7 +5,7 @@
 version: "3.7"
 services:
   zk-0:
-    image: zookeeper:3.7.0
+    image: zookeeper:3.8.0
     restart: always
     container_name: zk-0
     hostname: zk-0
@@ -20,7 +20,7 @@ services:
       ZOO_SERVERS: server.0=zk-0:2888:3888;2181 server.1=zk-1:2888:3888;2181 server.2=zk-2:2888:3888;2181
 
   zk-1:
-    image: zookeeper:3.7.0
+    image: zookeeper:3.8.0
     restart: always
     container_name: zk-1
     hostname: zk-1
@@ -35,7 +35,7 @@ services:
       ZOO_SERVERS: server.0=zk-0:2888:3888;2181 server.1=zk-1:2888:3888;2181 server.2=zk-2:2888:3888;2181
 
   zk-2:
-    image: zookeeper:3.7.0
+    image: zookeeper:3.8.0
     restart: always
     container_name: zk-2
     hostname: zk-2
