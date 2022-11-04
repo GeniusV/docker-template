@@ -5,6 +5,7 @@ services:
     container_name: mariadb-0
     volumes:
       - "./mariadb-0/data:/var/lib/mysql"
+      - "./mariadb/mariadb-0/dump:/dump"
       - "./mariadb-0/log:/var/log/mysql"
       - "./mariadb-0/conf:/etc/mysql/conf.d"
       - "./mariadb-0/init:/docker-entrypoint-initdb.d"
